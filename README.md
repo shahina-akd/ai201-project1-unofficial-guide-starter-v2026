@@ -53,83 +53,59 @@
 
      Milestone 3. -->
 
-**Chunk 1** — source: thread_bike_commute.txt#0  `` — produced by: chunker.py::fallback_split``
+**Chunk 1** — source: admin_add_drop_deadline.txt#0  `` — produced by: chunker.py::fallback_split``
 
 ```
-THREAD: Is a bike worth it for a 20 minute walk commute?
+On the add/drop deadline
 
---- reply 1 (14 votes) ---
-Yeah. Cuts an 18 minute walk to about 6. The thing nobody mentions is storage — covered bike parking exists at three buildings and is full by 9am at all three.
-
---- reply 2 (9 votes) ---
-Counterpoint, I sold mine. Between November and March the paths are either icy or salted and salt destroys a drivetrain in one season.
-
---- reply 3 (22 votes) ---
-Both true. I keep a cheap bike for September to November and walk the rest of the year. Total cost was about $120 for the bike and I don't care what happens to it.
-
---- reply 4 (5 votes) ---
-If you do get one, the campus does free registration and it's the only reason I got mine back after it was taken.
+You can add a course through the end of the second week. Dropping is a longer window — through the end of week six — but a drop after week two shows as a W on your transcript. Nothing anywhere on the registrar's site says this plainly, and students find out from each other.
 
 ```
 
-**Chunk 2** — source: thread_first_gen.txt#0 `` — produced by: chunker.py::fallback_split``
+**Chunk 2** — source: course_biol_160.txt#0 `` — produced by: chunker.py::fallback_split``
 
 ```
-THREAD: Anything specific for first-generation students?
+BIOL 160 Cell Biology
 
---- reply 1 (33 votes) ---
-The advising office has a specific programme and it is genuinely good, but it is opt-in and badly publicised. Ask for it by name.
+I lived here my sophomore year. Format is lecture three times a week with a weekly lab. Assessment: four unit tests and a cumulative final. Not curved.
 
---- reply 2 (41 votes) ---
-The thing I'd say: the unwritten rules are the hard part, not the coursework. Ask about the unwritten rules explicitly. People are happy to explain them and nobody volunteers them.
+Expect 9 to 11 hours a week, the heaviest first-year course by reputation.
 
---- reply 3 (16 votes) ---
-Emergency fund for textbooks and travel exists and is not means-tested beyond a short form.
+The one piece of advice: the unit tests come fast, roughly every three weeks; falling behind once is very hard to recover from.
 ```
 
-**Chunk 3** — source: thread_laptop_specs.txt#0 `` — produced by: chunker.py::fallback_split``
+**Chunk 3** — source: course_hist_118_workload.txt#0 `` — produced by: chunker.py::fallback_split``
 
 ```
-THREAD: How much laptop do I actually need for CS courses?
+Workload for HIST 118 Modern World History
 
---- reply 1 (31 votes) ---
-Less than the recommended spec page says. 16GB of RAM is the one number worth paying for; everything else you'll never notice.
+People keep asking so: a lot of reading, about 120 pages a week, but no problem sets. That's real time, not optimistic time.
 
---- reply 2 (18 votes) ---
-Adding: the lab machines exist and are better than anything you'll buy. For the heavy assignments people just use those.
-
---- reply 3 (12 votes) ---
-I did two years on an 8GB machine and it was fine until the last project, at which point it very much wasn't. 16 is the answer.
+It's front-loaded — the first month is heavier than the rest, partly because you're learning the format.
 ```
 
-**Chunk 4** — source: thread_office_hours_etiquette.txt#0 `` — produced by: chunker.py::fallback_split``
+**Chunk 4** — source: dining_pellew_dining_hall_followup.txt#0 `` — produced by: chunker.py::fallback_split``
 
 ```
-THREAD: Is it weird to go to office hours with no specific question?
+Re: Pellew Dining Hall
 
---- reply 1 (44 votes) ---
-No, and this is the single most common thing first years get wrong. 'I'm following the lectures but I don't feel like I understand the shape of it' is a completely normal thingto say.
+Adding to what people have said about Pellew Dining Hall. The wait figure of 12 to 18 minutes at peak matches what I've seen. If you're trying to eat between classes, go before 11:45 and it's a different building entirely.
 
---- reply 2 (29 votes) ---
-They're usually empty. You are doing the instructor a favour by turning up.
-
---- reply 3 (18 votes) ---
-If it helps, treat it as a standing appointment. Go every week for a month and it stops feeling like a thing.
+Also worth saying: the furthest hall from anywhere, next to the athletics centre. Nobody tells you this at orientation.
 ```
 
-**Chunk 5** — source: thread_roommate_conflict.txt#0 `` — produced by: chunker.py::fallback_split``
+**Chunk 5** — source: housing_innisfree_hall.txt#0 `` — produced by: chunker.py::fallback_split``
 
 ```
-THREAD: Roommate situation isn't working. What now?
+Innisfree Hall — what it's actually like
 
---- reply 1 (28 votes) ---
-Talk to your RA early, and frame it as 'we need help sorting this out' rather than 'move me'. Room changes are possible but the process starts with mediation and skipping that step slows it down.
+Transferred in last year, so take this with a grain of salt. Built 1991, renovated 2022. Rooms are doubles arranged as pairs sharing one bathroom between two rooms.
 
---- reply 2 (14 votes) ---
-Room changes happen at the semester boundary almost always, and mid-semester only in fairly serious cases.
+The good: the shared-bathroom-between-two-rooms arrangement is the best compromise on campus.
 
---- reply 3 (33 votes) ---
-Write down specifics before the meeting. 'It's not working' is hard to act on; 'guests four nights a week past 2am' is not.
+The bad: no air conditioning, which matters for the first three weeks of September.
+
+Laundry costs $1.75 wash, $1.75 dry, app-based. On noise: moderate; the building is L-shaped and the short wing is much quieter.
 ```
 
 ## Sample Answer
