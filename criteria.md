@@ -23,8 +23,7 @@ For at least 4 of my 5 test questions, the retrieved chunks include one that
 contains the answer.
 
 **Why this target:**
-<!-- e.g. "One of my questions is about a topic only two documents mention, so
-     I expect that one to be hard." -->
+This is a good target because it tests whether the system is capable of finding the right information to answer questions. Allowing 5 out of 5 questions provides flexibility for occosional failures. 
 
 ---
 
@@ -33,8 +32,7 @@ contains the answer.
 Every answer the system produces names at least one source document.
 
 **Why this target:**
-<!-- Why all five and not four? What about your setup makes that achievable —
-     or what would have to go wrong for it not to be? -->
+This target makes the system's answers traceable and helps verify whether the RAG is using the provided documents.
 
 ---
 
@@ -44,53 +42,29 @@ When I ask a question my documents clearly don't cover, the relevance gate
 stops it and the system returns "I don't have enough information about that" —
 in at least 4 of 5 tries.
 
-<!-- The five questions are the ones in `OUT_OF_SCOPE` at the bottom of
-     `questions.py`, and `run_eval.py` puts them through the gate and writes
-     what happened into your run log. Swap them for your own if you'd rather —
-     just keep five of them, or the "4 of 5" above has nothing to be 4 of. -->
-
 **Why this target:**
-<!-- What did your distances look like when you set the cutoff in Milestone 4?
-     Was there a clean gap, or did the two groups overlap? -->
+This target measures the system's ability to recognize when an answer is not supported by the corpus instead of silently providing unverified information.The 4 out of 5 permits allow for occasional errors while still holding a strong reliability expectation. 
 
 ---
 
-## 4. Something about your chunks
+## 4. Retrieval chunks do not contain contradictory information
 
-<!-- YOU WRITE THIS ONE.
-
-     How would you know if your chunks were the right size? Name something
-     countable or observable.
-
-     Examples of the right shape — don't copy these, they should come from
-     what you actually saw in Milestone 3:
-       - "At least 4 of 5 sampled chunks read as a complete thought, with no
-          sentence cut in half at either end."
-       - "No chunk is shorter than 200 characters, since anything below that
-          in my corpus turned out to be a heading with no content under it." -->
-
+The chunks do not provide unsupported or contradictory infromation while providing enough context to answer the question.
 
 
 **Why this target:**
-
+This is a good target because it helps prevent the system from retrieving misleading or conflicting infromation that leads to wrong responses.
 
 
 ---
 
-## 5. Your choice
+## 5. The answer accurately conveys the chuks context 
 
-<!-- YOU WRITE THIS ONE TOO.
-
-     Pick something you actually care about getting right. It could be about
-     speed, about refusals, about a particular kind of question your corpus
-     handles badly, about source attribution being correct rather than merely
-     present — anything, as long as it names a number or an observable
-     outcome. -->
-
+The system does not misinterpret or exaggerate the retrieved information.
 
 
 **Why this target:**
-
+This is a good target because it tests whether the system is capable of interpreting context correctly.
 
 
 ---
