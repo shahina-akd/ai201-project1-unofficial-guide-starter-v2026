@@ -28,9 +28,11 @@
      Milestone 5. -->
 
 ## Chunking Strategy
+This strategy keeps the overlap value of 120 and reduces the chunk size to 500. 
+The chunker first separates the paragraphs. Paragraphs up containing up to 500 characters stay intact. Paragraphs exceeding the maximum character count are split into sentences. Next we group together the senteces until adding the next sentence makes the group exceed 500 characters. If a single sentence is more than 500 characters, we split it midway.
 
-**Chunk size:**
-**Overlap:**
+**Chunk size: 500**
+**Overlap 120**
 
 <!-- What about YOUR documents made you pick these numbers? Short posts and
      long sectioned guides don't want the same chunking, and "800 seemed
@@ -41,6 +43,11 @@
      more than pretending you got it right first time.
 
      Milestone 3. -->
+The campus_life documents are very short, usually a single paragraph, contain between 178 and 549 characters. Usually the documents respond to a single question, and splitting the documents leads to over fragmentation. However, there are also expamples of documents where a single paragraphs touches multiple different subjects  or where there are multiple student advices that contradict each other. 
+
+I tried to experiement with a maximum sizes of 200, 250, 300 and 400. Each time, I got chunks that missed useful context. So, I raised the maximum size to 500 and added other steps to the split_documnets function described above. The chunks still look fragmented and not as good at the chunks produced by the fallback method. 
+
+It looks like just spliting on character count is not as helpful with this corpora. I would like to expiriment further with different methodologies to see if I can get better results.
 
 ## Sample Chunks
 
@@ -53,59 +60,34 @@
 
      Milestone 3. -->
 
-**Chunk 1** — source: admin_add_drop_deadline.txt#0  `` — produced by: chunker.py::fallback_split``
+**Chunk 1** — source: admin_add_drop_deadline.txt#00  `` — produced by: chunker.py::split_documents``
 
 ```
 On the add/drop deadline
-
-You can add a course through the end of the second week. Dropping is a longer window — through the end of week six — but a drop after week two shows as a W on your transcript. Nothing anywhere on the registrar's site says this plainly, and students find out from each other.
-
 ```
 
-**Chunk 2** — source: course_biol_160.txt#0 `` — produced by: chunker.py::fallback_split``
+**Chunk 2** — source: course_cs_210_workload.txt#2 `` — produced by: chunker.py::chunker.py::split_documents``
 
 ```
-BIOL 160 Cell Biology
-
-I lived here my sophomore year. Format is lecture three times a week with a weekly lab. Assessment: four unit tests and a cumulative final. Not curved.
-
-Expect 9 to 11 hours a week, the heaviest first-year course by reputation.
-
-The one piece of advice: the unit tests come fast, roughly every three weeks; falling behind once is very hard to recover from.
-```
-
-**Chunk 3** — source: course_hist_118_workload.txt#0 `` — produced by: chunker.py::fallback_split``
-
-```
-Workload for HIST 118 Modern World History
-
-People keep asking so: a lot of reading, about 120 pages a week, but no problem sets. That's real time, not optimistic time.
-
 It's front-loaded — the first month is heavier than the rest, partly because you're learning the format.
 ```
 
-**Chunk 4** — source: dining_pellew_dining_hall_followup.txt#0 `` — produced by: chunker.py::fallback_split``
+**Chunk 3** — source: course_phys_130.txt#3  `` — produced by: chunker.py::split_documents``
 
 ```
-Re: Pellew Dining Hall
-
-Adding to what people have said about Pellew Dining Hall. The wait figure of 12 to 18 minutes at peak matches what I've seen. If you're trying to eat between classes, go before 11:45 and it's a different building entirely.
-
-Also worth saying: the furthest hall from anywhere, next to the athletics centre. Nobody tells you this at orientation.
+The one piece of advice: the lab practical is worth 20% and almost nobody prepares for it.
 ```
 
-**Chunk 5** — source: housing_innisfree_hall.txt#0 `` — produced by: chunker.py::fallback_split``
+**Chunk 4** — source: dining_verrill_street_grill.txt#1 `` — produced by: chunker.py::split_documents``
 
 ```
-Innisfree Hall — what it's actually like
+I'm a junior and I've done this twice now. Wait times: up to 30 minutes on Friday evenings, otherwise under 10. The thing worth going for is the burger, which is the only late-night hot food on campus. The thing to know is that one register, so the queue is a single line no matter how busy.
+```
 
-Transferred in last year, so take this with a grain of salt. Built 1991, renovated 2022. Rooms are doubles arranged as pairs sharing one bathroom between two rooms.
+**Chunk 5** — source: housing_morrow_house.txt#2 `` — produced by: chunker.py::split_documents``
 
-The good: the shared-bathroom-between-two-rooms arrangement is the best compromise on campus.
-
-The bad: no air conditioning, which matters for the first three weeks of September.
-
-Laundry costs $1.75 wash, $1.75 dry, app-based. On noise: moderate; the building is L-shaped and the short wing is much quieter.
+```
+The good: cheapest housing tier by about $900 a year, and the singles are real singles.
 ```
 
 ## Sample Answer

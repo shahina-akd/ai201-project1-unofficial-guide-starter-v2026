@@ -27,6 +27,8 @@ from dataclasses import dataclass
 import config
 from ingest import Document
 
+import re
+
 
 @dataclass
 class Chunk:
@@ -81,23 +83,69 @@ def fallback_split(
 
 
 def split_documents(documents: list[Document]) -> list[Chunk]:
-    """
-    Split documents into chunks. ⚠️ REPLACE THE BODY OF THIS IN MILESTONE 3.
+    """Split document using paragraph and sentence boundaries."""
+    max_size = 500
+    chunks: list[Chunk] = []
 
-    Right now it just calls the fallback. That is the plain, generic behaviour
-    the brief is talking about.
+    for doc in documents:
+        paragraphs = [
+            p.strip()
+            for p in re.split(r"\n\s*\n", doc.text.strip())
+            if p.strip()
+        ]
 
-    When you write your own strategy, set `produced_by` to
-    "chunker.py::split_documents" so your README's Sample Chunks section names
-    the right function. `app.py chunks` prints that string for you.
+        pieces: list[str] = []
 
-    Things worth thinking about before you write any code:
-      - Are your documents short posts or long guides?
-      - Is the useful information in one sentence, or spread over a paragraph?
-      - Would splitting on paragraph breaks keep more thoughts intact than
-        splitting on a character count?
-    """
-    return fallback_split(documents)
+        for paragraph in paragraphs:
+            if len(paragraph) <= max_size:
+                pieces.append(paragraph)
+                continue
+
+            sentences = re.split(r"(?<=[.!?])\s+", paragraph)
+
+            current = ""
+
+            for sentence in sentences:
+                sentence = sentence.strip()
+
+                if not sentence:
+                    continue
+
+                candidate = (
+                    f"{current} {sentence}"
+                    if current
+                    else sentence
+                )
+
+                if len(candidate) <= max_size:
+                    current = candidate
+                else:
+                    if current:
+                        pieces.append(current)
+
+                    if len(sentence) > max_size:
+                        for start in range(0, len(sentence), max_size):
+                            pieces.append(
+                                sentence[start:start + max_size]
+                            )
+                        current = ""
+                    else:
+                        current = sentence
+
+            if current:
+                pieces.append(current)
+
+        for index, piece in enumerate(pieces):
+            chunks.append(
+                Chunk(
+                    text=piece,
+                    source=doc.source,
+                    index=index, 
+                    produced_by="chunker.py::split_documents",
+                )
+            )
+
+    return chunks
 
 
 def describe(chunks: list[Chunk]) -> str:
